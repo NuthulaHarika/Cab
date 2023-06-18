@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CabBooking</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="/" style="color: white;">Home</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/usermybookings" style="color: white; font-weight: 600;">My Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/detail" style="color: white; font-weight: 600;">Details</a>
+            </li>
+        </ul>
+        <span>
+           
+        </span>
+        <span>
+            <a routerLink="/" style="color: white;"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i> Logout</a>
+        </span>
+      </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="main1">
+        <div class="main2">
+            <div class="content p-3">
+                <h2>Book your cab</h2>
+                <form #bookingform="ngForm" (ngSubmit)="OnSubmit(bookingform)" id="form">
+                    <label for="source">Source Location</label>
+                    <div class="source mt-1">
+                        <i class="fa-solid fa-location-dot fa-lg pt-3"></i>
+                        <select #source="ngModel" [(ngModel)]="userdetails.source" name="source" id="source" class="py-1" required>
+                            <option value=""  style="font-weight: bold;">Select your source location</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Chennai">Chennai</option>
+                        </select>
+                    </div>
+                    <div class="text-danger" *ngIf= "source.dirty && source.errors?.['required']">
+                        *Feild is required
+                    </div>
+                    <label for="destination"  class="mt-3">Destination Location</label>
+                    <div class="destination mt-1">
+                        <i class="fa-solid fa-location-arrow fa-lg pt-3"></i>
+                        <select #destination="ngModel" [(ngModel)]="userdetails.destination" name="destination" id="destination" class="py-1" required>
+                            <option value="" style="font-weight: bold;">Select your destination location</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Chennai">Chennai</option>
+                        </select>
+                    </div>
+                    <div class="text-danger" *ngIf= "destination.dirty && destination.errors?.['required']">
+                        *Feild is required
+                    </div>
+                    <div class="text-danger" *ngIf= "destination.touched && source.value == destination.value">
+                        *Source and destination are same
+                    </div>
+                    <label for="vehicleSize"  class="mt-3">Cab Size</label>
+                    <div class="vehicleSize mt-1">
+                        <i class="fa-solid fa-car-side fa-lg pt-3"></i>
+                        <select #carsize="ngModel" [(ngModel)]="userdetails.carsize" name="carsize" id="vehicleSize" class="py-1" required>
+                            <option value="" style="font-weight: bold;">Select your cab size</option>
+                            <option value="5-Seater">5-Seater</option>
+                            <option value="7-Seater">7-Seater</option>
+                        </select>
+                    </div>
+                    <div class="text-danger" *ngIf= "carsize.dirty && carsize.errors?.['required']">
+                        *Feild is required
+                    </div>
+                    <label for="vehicleModel"  class="mt-3">Cab Model</label>
+                    <div class="vehicleModel mt-1">
+                        <i class="fa-solid fa-car fa-lg pt-3"></i>
+                        <select #carmodel="ngModel" [(ngModel)]="userdetails.carmodel" name="carmodel" id="vehicleModel" class="py-1" required>
+                            <option value="" style="font-weight: bold;">Select your cab model</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Mini Van">Mini Van</option>
+                            <option value="Supercar">Supercar</option>
+                            <option value="Roadster">Roadster</option>
+                            <option value="Coupe">Coupe</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="CUV">CUV</option>
+                        </select>
+                    </div>
+                    <div class="text-danger" *ngIf= "carmodel.dirty && carmodel.errors?.['required']">
+                        *Feild is required
+                    </div>
+                    <label for="estimatedFare" class="mt-3">Estimated Fare</label>
+                    <div class="estimatedFare mt-1">
+                        <div class="fareSection">
+                            <div class="fare">
+                                <i class="fa-solid fa-indian-rupee-sign fa-lg"></i>
+                                <span #fare="ngModel" [(ngModel)]="userdetails.fare" name="fare" id="fare" value="1500" class="ms-2 fs-4 fw-bold pt-3">{{userdetails.fare}}</span>
+                            </div>
+                            <div class="farebtn">
+                                <button #farebtn class="btn btn-dark text-end" (click)="calculateFare(bookingform)" [disabled]="clicked" >Calculate</button>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <!-- <button class="btn btn-dark" style="position: relative; right: 0;">Calculate</button> -->
+                    </div>
+                    <div class="button d-grid gap-2 my-3">
+                        <button class="btn btn2 btn-dark fw-semibold" id="bookBtn"  type="submit">Book Cab</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="position: fixed;bottom: 0;" class="mt-5">
+    <span>&copy;CabBooking. All rights reserved.</span>
+</footer>
+

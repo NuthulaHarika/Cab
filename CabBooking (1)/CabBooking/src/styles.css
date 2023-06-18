@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+
+  @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+a{
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+}
+
+input,select{
+    border: 1.5px rgba(0, 0, 0, 0.747) solid;
+    border-radius: 4px;
+}
+label{
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 1px;
+}
+.main2{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    text-align: left;
+    width: 32%;
+    border-radius: 10px;
+}
+.main1{
+    text-align: center;
+}
+
+.heading{
+    text-align: left;
+}
+/* #toggle{
+    position: relative;
+    margin-left: 30px;
+} */
+#email, #password{
+    width: 100%;
+    font-size:large;
+}
+.email, .password, .source, .destination, .vehicleModel,.vehicleSize{
+    text-align: left;
+    display: grid;
+    grid-template-columns: 0.8fr 9fr;
+}
+.fareSection, .homeContent{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.farebtn{
+    text-align: right;
+}
+#firstname, #lastname{
+    width: 100%;
+    text-align: left;
+    font-size:large;
+}
+#signup-email, #signup-password, #confirm-password,#signup-mobile,#source,#destination{
+    width: 100%;
+    text-align: left;
+    font-size:large;
+}
+#vehicleModel, #vehicleSize{
+    width: 100%;
+    text-align: left;
+    font-size:large;
+}
+.fa-user, .fa-lock, fa-location-dot{
+    font-size: large;
+
+}
+
+.forget{
+    text-align: right;
+    font-size: 15px;
+    font-weight: 500;
+}
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 0.8px;
+    background: #606060;
+}
+
+#togglePassword{
+    position: absolute;
+    margin-left: -45px;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn2{
+    width: 100%;
+}
+.link:hover{
+    color: white;
+}
+footer{
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.caption{
+    text-align: center;
+    font-size: 5rem;
+    font-weight:600;
+    padding-right: 5rem;
+    font-family: 'Handlee', cursive;
+}
+.logo{
+    margin-left: 7rem;
+}
+.notfound{
+    background-color: black;
+    padding-top: 17%;
+    padding-bottom: 17%;
+
+}
+.nfnum, .nfdesc{
+    background-color: black;
+    font-size: 5rem;
+    color: white;
+    font-family: 'Handlee', cursive;
+    text-align: center;
+    
+}

@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CabBooking</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/" style="color: white; font-weight: 600;">Home</a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/userlogin" style="color: white; font-weight: 600;">User</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="main1">
+        <div class="main2">
+            <div class="content p-3">
+                <div class="heading mb-4">
+                    <h2 class="fw-semibold">Driver Login</h2>
+                </div>
+                <form #driversigninform="ngForm" (ngSubmit)="OnSubmit(driversigninform)" id="form">
+
+                    <div class="email mb-3">
+                        <i class="fa-regular fa-user me-1 pt-2"></i>
+                        <input class="py-1" #driverId="ngModel" [(ngModel)]="driverdetails.driverId" name="driverId" type="email" id="email" placeholder="Enter Driver ID" required pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" >
+                    </div>
+                    <div class="text-danger pb-1" *ngIf= "driverId.dirty && driverId.errors?.['required']">
+                        *DriverID is required
+                    </div>
+                    <div class="text-danger pb-1" *ngIf= "driverId.dirty && driverId.errors?.['pattern']">
+                        *Invalid input
+                    </div>
+    
+                    <div class="password mb-3">
+                        <div class="icon">
+                            <i class="fa-solid fa-lock me-1 pt-2"></i>
+                        </div>
+                        <div class="pass-input">
+                            <input class="py-1" #password="ngModel" [(ngModel)]="driverdetails.password" name="password"  type="password" id="password" placeholder="Enter your password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" >
+                        </div>
+                    </div>
+                    <div class="text-danger pb-1" *ngIf= "password.dirty && password.errors?.['required']">
+                        *Password is required
+                    </div>
+                    <div class="text-danger pb-1" *ngIf= "password.dirty && password.errors?.['pattern']">
+                        *Invalid input
+                    </div>
+                    <div class="for-adm">
+                        <div class="forget pe-1">
+                            <a routerLink="/forgetdriverpassword">Forget password?</a>
+                        </div>
+                    </div>
+                    <div class="button d-grid gap-2 my-3">
+                        <button class="btn  btn2 btn-dark" id="signin-btn" type="submit">Log in</button>
+                    </div>  
+                    
+                </form>
+
+                <div class="divider d-flex align-items-center mx-1 my-4">
+                    <p class="text-center mx-3 mb-0  text-muted">OR</p>
+                </div>
+
+                <div class="button d-grid gap-2 my-3">
+                    <a class="link" href="https://myaccount.google.com/?utm_source=sign_in_no_continue&pli=1"><button class="btn  btn2  btn-outline-dark" formaction=""><i class="fa-brands fa-google"></i> Log in with Google </button></a>
+                </div>
+                <div class="button d-grid gap-2 my-3">
+                    <a class="link" href="https://www.facebook.com/login/"><button class="btn  btn2 btn-outline-dark" formaction=""><i class="fa-brands fa-facebook"></i> Log in with Facebook </button></a>
+                </div>
+                <div class="button d-grid gap-2 my-3">
+                    <a class="link" href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D"><button class="btn btn2 btn-outline-dark" formaction=""><i class="fa-brands fa-twitter"></i> Log in with Twitter </button></a>
+                </div>
+            </div>
+        </div>
+        <div class="register my-4">
+            <span>Create account? <a routerLink="/driverregister"> Register</a></span>
+        </div>
+    </div>
+</div>
+<footer style="position: fixed;bottom: 0;">
+    <span>&copy;CabBooking. All rights reserved.</span>
+</footer>
